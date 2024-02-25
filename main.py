@@ -1,4 +1,6 @@
 import json
+import secrets
+
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.datastructures import Headers
@@ -98,6 +100,8 @@ def loginMiddleware(data: dict, headers: Headers, path: str):
         token = headers.get('X-Token', '')
         if token in accounts.keys():
             if requests_count[token] > 10 and not conf['static_token']:
+                accounts[secrets.token_urlsafe(47)] = accounts[token]
+                del accounts[token]
                 return False, '', '', 525
             return True, accounts['token']['username'], '', 200
         else:
