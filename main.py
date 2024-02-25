@@ -108,6 +108,28 @@ def loginMiddleware(data: dict, headers: Headers, path: str):
             return False, '', '', 520
 
 
+def get_handler(schema: dict, route: str):
+    async def handler(request: Request, verbe: str = 'default', v: str = 'unknown'):
+        print(f"[{route}] Receiving \"{verbe}\" request, requesting version {v}")
+        body = unquote((await request.body()).decode())
+        data = json.loads(body.replace('data=', '', 1))
+
+        is_logged_in, user, token, code = loginMiddleware(data, request.headers, route)
+        print(is_logged_in, request.headers)
+
+        if is_logged_in:
+            print(f"--> {verbe}.response.{user}")
+            response = schema[verbe]['response'][user]
+            response['token'] = token
+            # Execute action
+            eval(schema[verbe]['action'])
+            return response
+        else:
+            print(f"--> errors.{code}")
+            return error_request(code)
+    return handler
+
+
 if __name__ == '__main__':
     conf = read_json("config.json")
     routes = read_json("requests.json")
@@ -115,23 +137,6 @@ if __name__ == '__main__':
     # Register routes
     for route in routes.keys():
         schema = read_json('responses/' + routes[route])
-
-        @app.post(route)
-        async def handler(request: Request, verbe: str = 'default', v: str = 'unknown'):
-            print(f"[{route}] Receiving \"{verbe}\" request, requesting version {v}")
-            body = unquote((await request.body()).decode())
-            data = json.loads(body.replace('data=', '', 1))
-
-            is_logged_in, user, token, code = loginMiddleware(data, request.headers, route)
-
-            if is_logged_in:
-                print(f"--> {verbe}.response.{user}")
-                response = schema[verbe]['response'][user]
-                response['token'] = token
-                # Execute action
-                eval(schema['action'])
-                return response
-            else:
-                return error_request(code)
+        app.add_route(route, get_handler(schema, route), methods=['POST'])
 
     uvicorn.run(app)

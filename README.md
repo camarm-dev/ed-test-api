@@ -69,6 +69,9 @@ Le champ `action` doit contenir du code python, qui peut modifier des données t
 - `conf`: Le contenu du fichier `config.json
 - `data`: Le contenu de `data` dans le corps de requête
 
+> [!CAUTION]
+> Si vous ne souhaitez pas d'action, mettez `...`
+
 ## Contribuer
 
 - Corrigez des requêtes

@@ -1,0 +1,21 @@
+{
+  "get": {
+    "response": {
+      "jean": {
+        "code": 200,
+        "token": "string",
+        "message": "",
+        "data": {
+        }
+      },
+      "marie": {
+        "code": 200,
+        "token": "string",
+        "message": "",
+        "data": {
+        }
+      }
+    },
+    "action": "..."
+  }
+}
