@@ -1,5 +1,7 @@
 # ed-test-api
-Serve an API which reproduces the EcoleDirecte behavior without and EcoleDirecte account !
+Serve an API which reproduces the EcoleDirecte behavior without an EcoleDirecte account !
+
+ed-test-api is a **testing purposes** development EcoleDirecte like API.
 
 ## Lancer
 
@@ -36,7 +38,7 @@ eg. `requests/login.json`
 
       }
     },
-    "action": ""
+    "action": "func_name(data)"
   }
   
 }
@@ -44,7 +46,7 @@ eg. `requests/login.json`
 
 - "get", "put", "delete", "post": argument verbe
   - response: la réponse pour "Jean" et "Marie"
-  - action: nom d'une fonction python pour modifier des valeurs temporaires (arguments possibles: `data`: request data)
+  - action: nom d'une fonction python pour modifier des valeurs temporaires (variables possibles: `data`: request data, `user`: username, `token`: token)
 
 - Un fichier `requests.json` qui lie route et requête :
 ```json
@@ -52,6 +54,12 @@ eg. `requests/login.json`
   "/login.awp": "login.json"
 }
 ```
+
+## Ajouter une route
+
+1. Ajouter la route dans `requests.json`, (lier le nom de fichier de l'étape 2)
+2. Ajouter les specs de la réponse dans `response/<nom>.json`
+3. Si besoin, ajouter une fonction dans `utils.py` (fonction utilisée par `action`)
 
 ## Contribuer
 

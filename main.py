@@ -3,6 +3,7 @@ import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.datastructures import Headers
 from urllib.parse import unquote
+from utils import *
 
 app = FastAPI(title="EcoleDirecte test API")
 accounts = {
@@ -123,6 +124,8 @@ if __name__ == '__main__':
                 print(f"--> {verbe}.response.{user}")
                 response = schema[verbe]['response'][user]
                 response['token'] = token
+                # Execute action
+                eval(schema['action'])
                 return response
             else:
                 return error_request(code)
