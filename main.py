@@ -115,7 +115,6 @@ def get_handler(schema: dict, route: str):
         data = json.loads(body.replace('data=', '', 1))
 
         is_logged_in, user, token, code = loginMiddleware(data, request.headers, route)
-        print(is_logged_in, request.headers)
 
         if is_logged_in:
             print(f"--> {verbe}.response.{user}")
