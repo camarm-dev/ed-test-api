@@ -46,7 +46,7 @@ eg. `requests/login.json`
 
 - "get", "put", "delete", "post": argument verbe
   - response: la réponse pour "Jean" et "Marie"
-  - action: nom d'une fonction python pour modifier des valeurs temporaires (variables possibles: `data`: request data, `user`: username, `token`: token)
+  - action: nom d'une fonction python pour modifier des valeurs temporaires ([action](#champ-action))
 
 - Un fichier `requests.json` qui lie route et requête :
 ```json
@@ -60,6 +60,14 @@ eg. `requests/login.json`
 1. Ajouter la route dans `requests.json`, (lier le nom de fichier de l'étape 2)
 2. Ajouter les specs de la réponse dans `response/<nom>.json`
 3. Si besoin, ajouter une fonction dans `utils.py` (fonction utilisée par `action`)
+
+## Champ action
+
+Le champ `action` doit contenir du code python, qui peut modifier des données temporaires et autres... Les arguments possibles sont:
+- `user`: Le nom d'utilisateur
+- `token`: Le token
+- `conf`: Le contenu du fichier `config.json
+- `data`: Le contenu de `data` dans le corps de requête
 
 ## Contribuer
 
