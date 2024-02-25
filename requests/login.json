@@ -1,0 +1,23 @@
+{
+  "default": {
+    "response": {
+      "jean": {
+        "code": 200,
+        "token": "string",
+        "message": "",
+        "data": {
+          "accounts": []
+        }
+      },
+      "marie": {
+        "code": 200,
+        "token": "string",
+        "message": "",
+        "data": {
+          "accounts": []
+        }
+      }
+    },
+    "action": ""
+  }
+}
