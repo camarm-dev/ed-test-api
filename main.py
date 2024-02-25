@@ -2,6 +2,7 @@ import json
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.datastructures import Headers
+from urllib.parse import unquote
 
 app = FastAPI(title="EcoleDirecte test API")
 accounts = {
@@ -87,7 +88,7 @@ def loginMiddleware(data: dict, headers: Headers, path: str):
     if path == '/login.awp':
         username = data['identifiant']
         password = data['motdepasse']
-        for token, user in accounts.values():
+        for token, user in accounts.items():
             if user['username'] == username:
                 if user['password'] == password:
                     return True, username, token, 200
@@ -108,17 +109,18 @@ if __name__ == '__main__':
 
     # Register routes
     for route in routes.keys():
-        schema = routes[route]
+        schema = read_json('responses/' + routes[route])
 
         @app.post(route)
         async def handler(request: Request, verbe: str = 'default', v: str = 'unknown'):
             print(f"[{route}] Receiving \"{verbe}\" request, requesting version {v}")
-            body = await request.body()
-            data = json.loads(body.decode().replace('data=', '', 1))
+            body = unquote((await request.body()).decode())
+            data = json.loads(body.replace('data=', '', 1))
 
             is_logged_in, user, token, code = loginMiddleware(data, request.headers, route)
 
             if is_logged_in:
+                print(f"--> {verbe}.response.{user}")
                 response = schema[verbe]['response'][user]
                 response['token'] = token
                 return response

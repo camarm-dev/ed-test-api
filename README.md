@@ -22,7 +22,7 @@ python3 main.py
 
 ## Comment ça marche ?
 
-- Un dossier `requests/`, qui contient les définitions des requêtes et leurs réponses (réponses différentes en fonction utilisateur):
+- Un dossier `responses/`, qui contient les définitions des requêtes et leurs réponses (réponses différentes en fonction utilisateur):
 
 eg. `requests/login.json`
 ```json
