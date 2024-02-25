@@ -103,7 +103,7 @@ def loginMiddleware(data: dict, headers: Headers, path: str):
                 accounts[secrets.token_urlsafe(47)] = accounts[token]
                 del accounts[token]
                 return False, '', '', 525
-            return True, accounts['token']['username'], '', 200
+            return True, accounts[token]['username'], '', 200
         else:
             return False, '', '', 520
 
@@ -137,6 +137,6 @@ if __name__ == '__main__':
     # Register routes
     for route in routes.keys():
         schema = read_json('responses/' + routes[route])
-        app.add_route(route, get_handler(schema, route), methods=['POST'])
+        app.add_api_route(route, get_handler(schema, route), methods=['POST'])
 
     uvicorn.run(app)
