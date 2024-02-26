@@ -118,16 +118,17 @@ def get_handler(schema: dict, route: str):
         is_logged_in, user, token, code = loginMiddleware(data, request.headers, route)
 
         if is_logged_in:
-            print(f"--> {verbe}.response.{user}")
             response = schema[verbe]['response'].get(user, '')
             if response == '':
                 return f"Erreur ed-test-api: le compte '{user}' n'est pas configuré pour cette requête.", 501
             response['token'] = token
 
             action = schema[verbe]['action']
-            # Execute action
+
             if action != '...':
+                print(f"--> {verbe}.response.{user}, {action}")
                 return eval(action)
+            print(f"--> {verbe}.response.{user}")
             return response
         else:
             print(f"--> errors.{code}")
