@@ -89,6 +89,7 @@ Le champ `action` doit contenir une fonction python, qui peut modifier des donn�
 - `conf`: Le contenu du fichier `config.json
 - `data`: Le contenu de `data` dans le corps de requête
 - `temp_data`: Variable globale avec des données temporaires
+- `request`: La requête
 
 **Cette fonction doit renvoyer la réponse**
 
