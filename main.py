@@ -121,7 +121,7 @@ def get_handler(schema: dict, route: str):
             print(f"--> {verbe}.response.{user}")
             response = schema[verbe]['response'].get(user, '')
             if response == '':
-                return f"Erreur ed-test-api: le compte '{user}' n'est pas configuré pour cette requête.", 402
+                return f"Erreur ed-test-api: le compte '{user}' n'est pas configuré pour cette requête.", 501
             response['token'] = token
 
             action = schema[verbe]['action']
