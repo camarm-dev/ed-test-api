@@ -1,0 +1,175 @@
+{
+  "get": {
+    "response": {
+      "jean": {
+        "code": 200,
+        "token": "string",
+        "message": "",
+        "data": {
+          "evenements": [
+            {
+              "id": 0,
+              "libelle": "Sortie scolaire",
+              "description": "U29ydGllIHNjb2xhaXJlOiB2aXNpdGUgZGVzIGxvY2F1eCBkZSBQYXBpbGxvbiAh",
+              "theme": "???",
+              "dateDebut": "25/11/2024",
+              "heureDebut": "8h",
+              "dateFin": "25/11/2024",
+              "heureFin": "18h",
+              "dateFormatee": "???",
+              "cibles": ["E"],
+              "ciblesEtab": [2]
+            }
+          ],
+          "postits": [
+            {
+              "id": 0,
+              "type": "alerte",
+              "contenu": "QXR0ZW50aW9uLCBlZC10ZXN0LWFwaSBlc3QgdW5lIEFQSSBkZSB0ZXN0IHNldWxlbWVudCAh",
+              "dateCreation": "26/02/2024",
+              "dateDebut": "27/02/2024",
+              "dateFin": "30/11/2024",
+              "cible": "E",
+              "ciblesEtab": [
+                2
+              ],
+              "auteur": {
+                "civilite": "F",
+                "prenom": "Sylvie",
+                "particule": "Mme.",
+                "nom": "Boulanger",
+                "type": "A",
+                "id": "10"
+              }
+            },
+            {
+              "id": 1,
+              "type": "info",
+              "contenu": "QmllbnZlbnVlIHN1ciBsYSB0aW1lbGluZSBjb21tdW5lICE=",
+              "dateCreation": "30/02/2024",
+              "dateDebut": "30/02/2024",
+              "dateFin": "30/11/2024",
+              "cible": "E",
+              "ciblesEtab": [
+                2
+              ],
+              "auteur": {
+                "civilite": "F",
+                "prenom": "Sylvie",
+                "particule": "Mme.",
+                "nom": "Boulanger",
+                "type": "A",
+                "id": "10"
+              }
+            },
+            {
+              "id": 2,
+              "type": "couleur1",
+              "contenu": "Tm91YmxpZXogcGFzIGRlIHJlbXBsaXIgdm9zIHZvZXV4IFBhcmNvdXJTdXAgIQ==",
+              "dateCreation": "05/03/2024",
+              "dateDebut": "05/03/2024",
+              "dateFin": "30/11/2024",
+              "cible": "E",
+              "ciblesEtab": [
+                2
+              ],
+              "auteur": {
+                "civilite": "F",
+                "prenom": "Sylvie",
+                "particule": "Mme.",
+                "nom": "Boulanger",
+                "type": "A",
+                "id": "10"
+              }
+            }
+          ]
+        }
+      },
+      "marie": {
+        "code": 200,
+        "token": "string",
+        "message": "",
+        "data": {
+          "evenements": [
+            {
+              "id": 0,
+              "libelle": "Sortie scolaire",
+              "description": "U29ydGllIHNjb2xhaXJlOiB2aXNpdGUgZGVzIGxvY2F1eCBkZSBQYXBpbGxvbiAh",
+              "theme": "???",
+              "dateDebut": "25/11/2024",
+              "heureDebut": "8h",
+              "dateFin": "25/11/2024",
+              "heureFin": "18h",
+              "dateFormatee": "???",
+              "cibles": ["E"],
+              "ciblesEtab": [2]
+            }
+          ],
+          "postits": [
+            {
+              "id": 0,
+              "type": "alerte",
+              "contenu": "QXR0ZW50aW9uLCBlZC10ZXN0LWFwaSBlc3QgdW5lIEFQSSBkZSB0ZXN0IHNldWxlbWVudCAh",
+              "dateCreation": "26/02/2024",
+              "dateDebut": "27/02/2024",
+              "dateFin": "30/11/2024",
+              "cible": "E",
+              "ciblesEtab": [
+                2
+              ],
+              "auteur": {
+                "civilite": "F",
+                "prenom": "Sylvie",
+                "particule": "Mme.",
+                "nom": "Boulanger",
+                "type": "A",
+                "id": "10"
+              }
+            },
+            {
+              "id": 1,
+              "type": "info",
+              "contenu": "QmllbnZlbnVlIHN1ciBsYSB0aW1lbGluZSBjb21tdW5lICE=",
+              "dateCreation": "30/02/2024",
+              "dateDebut": "30/02/2024",
+              "dateFin": "30/11/2024",
+              "cible": "E",
+              "ciblesEtab": [
+                2
+              ],
+              "auteur": {
+                "civilite": "F",
+                "prenom": "Sylvie",
+                "particule": "Mme.",
+                "nom": "Boulanger",
+                "type": "A",
+                "id": "10"
+              }
+            },
+            {
+              "id": 2,
+              "type": "couleur1",
+              "contenu": "Tm91YmxpZXogcGFzIGRlIHJlbXBsaXIgdm9zIHZvZXV4IFBhcmNvdXJTdXAgIQ==",
+              "dateCreation": "05/03/2024",
+              "dateDebut": "05/03/2024",
+              "dateFin": "30/11/2024",
+              "cible": "E",
+              "ciblesEtab": [
+                2
+              ],
+              "auteur": {
+                "civilite": "F",
+                "prenom": "Sylvie",
+                "particule": "Mme.",
+                "nom": "Boulanger",
+                "type": "A",
+                "id": "10"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "action": "..."
+  }
+}

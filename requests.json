@@ -1,4 +1,6 @@
 {
   "/login.awp": "login.json",
-  "/eleves/{id}/notes.awp": "grades.json"
+  "/eleves/{id}/notes.awp": "grades.json",
+  "/eleves/{id}/timeline.awp": "timeline.json",
+  "/E/{id}/timelineAccueilCommun.awp": "timelineCommune.json"
 }
