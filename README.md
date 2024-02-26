@@ -3,6 +3,20 @@ Serve an API which reproduces the EcoleDirecte behavior without an EcoleDirecte 
 
 ed-test-api is a **testing purposes** development EcoleDirecte like API.
 
+## Roadmap
+
+- [x] Login
+  - [x] Token expiration
+  - [x] Multiple accounts support
+- [x] Timeline & timelineCommune
+- [ ] EDT
+- [ ] Devoirs
+  - [ ] Statut fait / non fait 
+
+**Web admin** (vraiment utile ?)
+- [ ] Modifier chaque réponse
+- [ ] Modifier `data/{data}.json`
+
 ## Lancer
 
 - Configurer dans `config.json`
@@ -13,7 +27,7 @@ ed-test-api is a **testing purposes** development EcoleDirecte like API.
 ```
 - Installer les dépendances
 ```shell
-pip install fastapi
+pip install fastapi uvicorn
 ```
 - Lancer le serveur
 ```shell
