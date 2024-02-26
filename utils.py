@@ -30,6 +30,8 @@ from main import read_json
 
 # TODO: fill timetable !
 timetable = read_json('data/timetable.json')
+# TODO: fill homeworks
+homeworks = read_json('data/homeworks.json')
 
 
 def get_timetable(response, data):
@@ -48,7 +50,39 @@ def get_timetable(response, data):
     # Fill EDT by weekday
     while start_datetime <= end_datetime:
         day_number = start_datetime.weekday()
-        response['data'].extends(timetable[str(day_number)])
+        response['data'].extend(timetable[str(day_number)])
         start_datetime += datetime.timedelta(days=1)
+    # TODO; need to sort ?
+    return response
 
+
+def get_week(date):
+    """Return the full week (Sunday first) of the week containing the given date.
+
+    'date' may be a datetime or date instance (the same type is returned).
+    """
+    monday = date - datetime.timedelta(days=date.weekday())
+    date = monday
+    for n in range(7):
+        yield date
+        date += datetime.timedelta(days=1)
+
+
+def get_homeworks(response):
+    week = get_week(datetime.datetime.now())
+    for day in week:
+        weekday = day.weekday()
+        key = day.strftime("%Y-%m-%d")
+        response['data'][key] = homeworks[str(weekday)]
+    print(response)
+    return response
+
+
+def get_homeworks_day(request, response):
+    day = request.path_params.get('day')
+    year, month, day = day.split("-")
+    date = datetime.datetime(int(year), int(month), int(day))
+    day_number = date.weekday()
+
+    response['data']['matieres'] = homeworks[str(day_number)]
     return response
