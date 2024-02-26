@@ -34,6 +34,11 @@ pip install fastapi uvicorn
 python3 main.py
 ```
 
+**Ou avec docker**
+```shell
+docker build -t ed-test-api . && docker run -p 8000:800 --rm ed-test-api
+```
+
 - Visiter [localhost:8000](http://localhost:8000/docs)
 
 ## Comment ça marche ?
