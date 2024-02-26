@@ -169,4 +169,4 @@ if __name__ == '__main__':
 
         app.add_api_route('/v3' + route, get_handler(schema, route), methods=['POST'])
 
-    uvicorn.run(app)
+    uvicorn.run(app, host='0.0.0.0')
