@@ -167,7 +167,6 @@ if __name__ == '__main__':
         configured_routes.append(route_string)
         print(route_string)
 
-        app.add_api_route(route, get_handler(schema, route), methods=['POST'])
         app.add_api_route('/v3' + route, get_handler(schema, route), methods=['POST'])
 
     uvicorn.run(app)
