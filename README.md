@@ -63,11 +63,15 @@ eg. `requests/login.json`
 
 ## Champ action
 
-Le champ `action` doit contenir du code python, qui peut modifier des données temporaires et autres... Les arguments possibles sont:
+Le champ `action` doit contenir une fonction python, qui peut modifier des données temporaires et autres... Les arguments possibles sont:
 - `user`: Le nom d'utilisateur
+- `response`: La réponse normalement renvoyée
 - `token`: Le token
 - `conf`: Le contenu du fichier `config.json
 - `data`: Le contenu de `data` dans le corps de requête
+- `temp_data`: Variable globale avec des données temporaires
+
+**Cette fonction doit renvoyer la réponse**
 
 > [!CAUTION]
 > Si vous ne souhaitez pas d'action, mettez `...`
