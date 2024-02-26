@@ -4,6 +4,7 @@ import secrets
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.datastructures import Headers
+from fastapi.responses import PlainTextResponse
 from urllib.parse import unquote
 from utils import *
 
@@ -118,7 +119,9 @@ def get_handler(schema: dict, route: str):
 
         if is_logged_in:
             print(f"--> {verbe}.response.{user}")
-            response = schema[verbe]['response'][user]
+            response = schema[verbe]['response'].get(user, '')
+            if response == '':
+                return f"Erreur ed-test-api: le compte '{user}' n'est pas configuré pour cette requête.", 402
             response['token'] = token
             # Execute action
             eval(schema[verbe]['action'])
@@ -129,13 +132,37 @@ def get_handler(schema: dict, route: str):
     return handler
 
 
+@app.get('/')
+async def root():
+    accounts_string = [f"+ {account['username']} : {account['password']}" for _, account in accounts.items()]
+    newline = '\n\t'
+    return PlainTextResponse(f"""
+Bienvenue sur ed-test-api ! Retrouvez ce projet à https://github.com/camarm-dev/ed-test-api
+
+
+Les comptes disponibles sont (identifiant : mot de passe):
+\t{newline.join(accounts_string)}
+
+Les endpoints disponibles sont:
+\t{newline.join(configured_routes)}
+    """)
+
+
 if __name__ == '__main__':
     conf = read_json("config.json")
     routes = read_json("requests.json")
 
+    configured_routes = []
     # Register routes
     for route in routes.keys():
         schema = read_json('responses/' + routes[route])
+
+        methods = list(schema.keys())
+        account = schema[methods[0]]['response'].keys()
+        route_string = f"+ [{route}] {len(methods)} méthode(s) et {len(account)} compte(s) configurés ({', '.join(acc for acc in account)})"
+        configured_routes.append(route_string)
+        print(route_string)
+
         app.add_api_route(route, get_handler(schema, route), methods=['POST'])
 
     uvicorn.run(app)
