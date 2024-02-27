@@ -451,8 +451,8 @@
     {
       "id": 107585,
       "text": "Intervention Papillon",
-      "matiere": "ANGLAIS",
-      "codeMatiere": "ANG",
+      "matiere": "PAPILLON",
+      "codeMatiere": "PAP",
       "typeCours": "COURS",
       "start_date": "xxxx-xx-xx 16:00",
       "end_date": "xxxx-xx-xx 17:00",
