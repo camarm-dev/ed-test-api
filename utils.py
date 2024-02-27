@@ -50,7 +50,13 @@ def get_timetable(response, data):
     # Fill EDT by weekday
     while start_datetime <= end_datetime:
         day_number = start_datetime.weekday()
-        response['data'].extend(timetable[str(day_number)])
+        courses = timetable[str(day_number)]
+        current_day = start_datetime.strftime("%Y-%m-%d")
+        for course in courses:
+            old_day = course['start_date'].split(' ')[0]
+            course['start_date'] = course['start_date'].replace(old_day, current_day)
+            course['end_date'] = course['end_date'].replace(old_day, current_day)
+            response['data'].append(course)
         start_datetime += datetime.timedelta(days=1)
     # TODO; need to sort ?
     return response
