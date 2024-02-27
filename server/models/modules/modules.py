@@ -1,4 +1,5 @@
 from enum import Enum
+<<<<<<< HEAD
 from typing import Optional
 from pydantic import BaseModel
 
@@ -11,6 +12,10 @@ from server.models.modules.settings.messages import MessagesParameters
 from server.models.modules.settings.reservations import ReservationsParameters
 from server.models.modules.settings.textbook import TextbookParameters
 
+=======
+from pydantic import BaseModel
+
+>>>>>>> 92fbd08 (fix: nouvelle structure)
 
 class ModuleCodes(Enum):
     BARCODE = 'CANTINE_BARCODE'
@@ -20,6 +25,7 @@ class ModuleCodes(Enum):
     CLOUD = 'CLOUD'
     MESSAGES = 'MESSAGERIE'
     TIMETABLE = 'EDT'
+<<<<<<< HEAD
     DOCUMENTS = 'DOCUMENTS_ELEVES'
     TEXTBOOK = 'CAHIER_DE_TEXTES'
     QCM = 'QCM'
@@ -54,3 +60,9 @@ class ModulesParameters(Enum):
 class Module(BaseModel):
     code: ModuleCodes
     params: Optional[ModulesParameters]
+=======
+
+
+class Module(BaseModel):
+    code: ModuleCodes
+>>>>>>> 92fbd08 (fix: nouvelle structure)
