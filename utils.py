@@ -58,7 +58,6 @@ def get_timetable(response, data):
             course['end_date'] = course['end_date'].replace(old_day, current_day)
             response['data'].append(course)
         start_datetime += datetime.timedelta(days=1)
-    # TODO; need to sort ?
     return response
 
 
