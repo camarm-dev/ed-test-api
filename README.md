@@ -3,6 +3,9 @@ Serve an API which reproduces the EcoleDirecte behavior without an EcoleDirecte 
 
 ed-test-api is a **testing purposes** development EcoleDirecte like API.
 
+> [!CAUTION]
+> This project is under a full rewrite, so the roadmap is outdated and code is not stable !
+
 ## Roadmap
 
 - [x] Login
@@ -25,9 +28,9 @@ ed-test-api is a **testing purposes** development EcoleDirecte like API.
   - [ ] Body data
   - [ ] Réponses
 
-**Web admin** (vraiment utile ?)
-- [ ] Modifier chaque réponse
-- [ ] Modifier `data/{data}.json`
+**Web admin**
+- [ ] Modifier chaque objet
+- [ ] Modifier chaque objet en brut
 
 ## Lancer
 
