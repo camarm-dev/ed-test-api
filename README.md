@@ -8,20 +8,20 @@ ed-test-api is a **testing purposes** development EcoleDirecte like API.
 
 ## Roadmap
 
-- [x] Login
-  - [x] Token expiration
-  - [x] Multiple accounts support
+- [ ] Login
+  - [ ] Token expiration
+  - [ ] Multiple accounts support
   - [ ] Modules comptes
-- [x] Timeline & timelineCommune
+- [ ] Timeline & timelineCommune
 - [ ] EDT
-  - [x] Récupérer par jour
-  - [x] Récupérer en tre deux dates
+  - [ ] Récupérer par jour
+  - [ ] Récupérer en tre deux dates
   - [ ] Dataset d'une semaine
 - [ ] Devoirs
   - [ ] Dataset d'une semaine de devoirs 
   - [ ] Statut fait / non fait
-  - [x] Lister
-  - [x] Lister par jour
+  - [ ] Lister
+  - [ ] Lister par jour
 - [ ] Notes
 
 - [ ] Swagger
