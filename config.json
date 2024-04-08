@@ -1,3 +1,4 @@
 {
-  "static_token": true
+  "static_token": true,
+  "web_admin": "yoursecurepassword"
 }
