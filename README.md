@@ -37,7 +37,8 @@ ed-test-api is a **testing purposes** development EcoleDirecte like API.
 - Configurer dans `config.json`
 ```json
 {
-  "static_token": true // Le token est statique alors il n'expirera jamais, sinon il faudra le regénérer toutes les 10 requêtes
+  "static_token": true, // Le token est statique alors il n'expirera jamais, sinon il faudra le regénérer toutes les 10 requêtes
+  "web_admin": "changeme" // Un mot de passe pour l'interface administrateur
 }
 ```
 - Installer les dépendances
@@ -51,12 +52,15 @@ python3 main.py
 
 **Ou avec docker**
 ```shell
-docker build -t ed-test-api . && docker run -p 8000:800 --rm ed-test-api
+docker build -t ed-test-api . && docker run -p 8000:8000 --rm ed-test-api
 ```
 
 - Visiter [localhost:8000](http://localhost:8000/docs)
 
 ## Comment ça marche ?
+
+> [!WARNING]
+> Outdated documentation
 
 - Un dossier `responses/`, qui contient les définitions des requêtes et leurs réponses (réponses différentes en fonction utilisateur):
 
