@@ -1,9 +1,0 @@
-{
-  "/login.awp": "login.json",
-  "/eleves/{id}/notes.awp": "grades.json",
-  "/eleves/{id}/timeline.awp": "timeline.json",
-  "/Eleves/{id}/cahierdetexte.awp": "homeworks.json",
-  "/Eleves/{id}/cahierdetexte/{day}.awp": "homeworksDay.json",
-  "/E/{id}/timelineAccueilCommun.awp": "timelineCommune.json",
-  "/E/{id}/emploidutemps.awp": "timetable.json"
-}
