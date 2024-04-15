@@ -50,6 +50,7 @@ class ModulesParameters(Enum):
     ESIDOC = EsidocParameters
     EDUDIANT = EtudiantParameters
 
+
 class Module(BaseModel):
     code: ModuleCodes
     params: Optional[ModulesParameters]

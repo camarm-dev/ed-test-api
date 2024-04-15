@@ -58,3 +58,7 @@ class Student(BaseModel):
 
     parametresIndividuels: StudentSettings
     profile: StudentProfile
+
+
+class StudentCreate(Student):
+    password: str
