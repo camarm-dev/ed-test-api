@@ -37,6 +37,7 @@ class Student(BaseModel):
     codeOgec: str
     main: bool
     lastConnexion: str
+    accessToken: Optional[str]
 
     civilite: str
     prenom: str
