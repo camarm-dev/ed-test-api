@@ -50,5 +50,13 @@ def is_token_valid(token: str):
         return False
 
 
+def is_access_token_valid(token: str, uuid: str):
+    if is_token_valid(token):
+        data = jwt.decode(token, SECRET)
+        token_uuid = data.get('uuid')
+        return token_uuid == uuid
+    return False
+
+
 def get_user(token: str):
     return jwt.decode(token, SECRET)['user']
