@@ -37,28 +37,16 @@ Ce projet a été créé suite au développement et à la montée des clients al
 ## Roadmap
 
 - [ ] Login
-  - [ ] Token expiration
-  - [ ] Multiple accounts support
-  - [ ] Modules comptes
-- [ ] Timeline & timelineCommune
-- [ ] EDT
-  - [ ] Récupérer par jour
-  - [ ] Récupérer en tre deux dates
-  - [ ] Dataset d'une semaine
-- [ ] Devoirs
-  - [ ] Dataset d'une semaine de devoirs 
-  - [ ] Statut fait / non fait
-  - [ ] Lister
-  - [ ] Lister par jour
-- [ ] Notes
+  - [ ] Default login
+  - [ ] "Mobile" (permanent) login
+- [ ] Timetable
+- [ ] Textbook
+- [ ] Timeline
+- [ ] Grades
 
+**Quêtes secondaires**
 - [ ] Swagger
-  - [ ] Body data
-  - [ ] Réponses
-
-**Web admin**
-- [ ] Modifier chaque objet
-- [ ] Modifier chaque objet en brut
+- [ ] Webadmin
 
 ## Déployer
 
@@ -71,7 +59,7 @@ Lancer le serveur de test directement avec python :
 ```shell
 pip install -r requirements.txt
 ```
-- Configurez selon vos envies en modifiant [config.json]()
+- Configurez selon vos envies en modifiant [config.json](#configjson)
 - Lancer le serveur
 ```shell
 python3 main.py
@@ -86,7 +74,7 @@ Déployer simplement ed-test-api avec Docker :
 ```shell
 docker build -t . ed-test-api
 ```
-- Configurez selon vos envies en modifiant [config.json]()
+- Configurez selon vos envies en modifiant [config.json](#configjson)
 - Lancer le conteneur
 ```shell
 docker run -d --rm -p 8000:8000 ed-test-api
