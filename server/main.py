@@ -1,9 +1,13 @@
+import json
+
 from fastapi import FastAPI, Request
 
 from server.utils.auth import is_token_valid, get_user
 from server.utils.response import response
 
 app = FastAPI(title="EcoleDirecte test API")
+with open('config.json') as file:
+    CONFIGURATION = json.loads(file.read())
 
 
 async def verify_token(request: Request, call_next):

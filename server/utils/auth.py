@@ -4,9 +4,10 @@ import hashlib
 import jwt
 from sqlalchemy.orm import Session
 
+from server.main import CONFIGURATION
 from server.models.accounts.student import Student
 
-SECRET = 'juste pour pas laisser vide...'
+SECRET = CONFIGURATION['secret']
 
 
 def hash_password(password: str):
