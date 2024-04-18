@@ -1,5 +1,6 @@
 import datetime
 import hashlib
+from typing import Union
 
 import jwt
 from sqlalchemy.orm import Session
@@ -14,11 +15,16 @@ def hash_password(password: str):
     return hashlib.sha3_512(password.encode()).hexdigest()
 
 
-def authenticate_user(username: str, password: str, database: Session):
+def authenticate_user(username: str, password: str, database: Session) -> Union[Student, None]:
     user = database.query(Student).filter(Student.identifiant == username).first()
     if user['password'] == hash_password(password):
         return user
     return None
+
+
+def authenticate_access_token(username: str, token: str, database: Session):
+    document = database.query()
+    return
 
 
 def generate_token(user_id: int):
