@@ -30,9 +30,21 @@ def generate_token(user_id: int):
     return jwt.encode(payload, SECRET)
 
 
+def generate_access_token(uuid: str):
+    payload = {
+        'uuid': uuid
+    }
+    expire = datetime.datetime.now() + datetime.timedelta(hours=24 * 365.25 * 3)
+    payload["exp"] = expire
+    return jwt.encode(payload, SECRET)
+
+
 def is_token_valid(token: str):
     try:
-        jwt.decode(token, SECRET)
+        data = jwt.decode(token, SECRET)
+        expire = data['exp']
+        if datetime.datetime.now() > datetime.datetime.fromisoformat(expire):
+            return False
         return True
     except jwt.PyJWTError:
         return False
